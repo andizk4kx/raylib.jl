@@ -1,0 +1,1 @@
+@d:\testpool\julia-1.11.3\bin\julia.exe  %1 %2 %3
