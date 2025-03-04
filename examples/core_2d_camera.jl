@@ -12,7 +12,7 @@
 *   Copyright (c) 2016-2025 Ramon Santamaria (@raysan5)
 *
 ********************************************************************************************/=#
-#adapted to julia 2025 Andreas Wagner
+#adapted to julia 2025 Andreas Wagner (using CoPilot)
 
 include("../raylib.jl")
 
@@ -31,13 +31,15 @@ buildColors = Vector{Color}(undef, MAX_BUILDINGS)
 spacing = 0
 
 for i in 1:MAX_BUILDINGS
-    buildings[i] = Rectangle(
-        -6000.0 + spacing,  # x
-        screenHeight - 130.0 - GetRandomValue(100, 800), # y
-        GetRandomValue(50, 200), # width
-        GetRandomValue(100, 800) # height
-    )
-    global spacing += Int32(buildings[i].width)
+    width = Float32(GetRandomValue(50, 200))
+    height = Float32(GetRandomValue(100, 800))
+    y = screenHeight - 130.0 - height
+    x = -6000.0 + spacing
+
+    buildings[i] = Rectangle(x, y, width, height)
+    spacing += width
+    
+    global spacing +=  width
     
     buildColors[i] = Color(
         GetRandomValue(200, 240),
