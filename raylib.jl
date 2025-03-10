@@ -26,7 +26,7 @@ const flag_window_always_run = 256
 const flag_window_transparent = 16
 const flag_window_highdpi = 8192
 const flag_window_mouse_passthrough = 16384
-const flag_msaa_4x_hint = 32
+const FLAG_MSAA_4X_HINT = 32
 const flag_interlaced_hint = 65536
 # TraceLogLevel
 const log_all = 0
